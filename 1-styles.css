@@ -1,0 +1,18 @@
+a {
+    color: #a71c3d;
+    text-decoration: none;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    bottom: 36rem;
+    background-color: #a71c3d;
+    width: 0;
+    height: 0.2rem;
+    transition: .4s cubic-bezier(0.17, 0.67, 0, 1.01);
+}
+
+a:hover::before {
+    width: 7.2%;
+}
