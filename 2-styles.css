@@ -1,0 +1,99 @@
+[type="checkbox"] {
+    display: none;
+}
+
+.toggle {
+    position: relative;
+    counter-increment: switchCounter;
+    display: inline-block;
+}
+
+.toggle::before {
+    content: counter(switchCounter);
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: pink;
+}
+
+.toggle .toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 80px;
+    height: 26px;
+    border-radius: 15px;
+    background: #ebebeb;
+    transition: all 0.3s;
+    border: 1px solid #c3c3c3;
+}
+
+.toggle-switch::before, .toggle-switch::after {
+    content: "";
+    position: absolute;
+}
+
+.toggle-switch::before {
+    left: -2px;
+    top: -4px;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.3s;
+    border: 1px solid #c3c3c3;
+}
+
+.toggle-switch::after {
+    top: 50%;
+    right: 8px;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%);
+    background: url(uncheck-switcher.svg);
+    background-size: 12px 12px;
+}
+
+.toggle [type="checkbox"]:checked+.toggle-label .toggle-switch {
+    background: #e1013c;
+}
+
+.toggle [type="checkbox"]:checked+.toggle-label .toggle-switch::before {
+    transform: translateX(50px);
+}
+
+.toggle [type="checkbox"]:checked+.toggle-label .toggle-switch::after {
+    width: 14px;
+    height: 14px;
+    left: 4px;
+    background-image: url(checkmark-switcher.svg);
+    background-size: 14px 14px;
+}
+
+.toggle-inner::before {
+    position: absolute;
+    content: "No";
+    left: 45px;
+    bottom: 5.5px;
+    z-index: 1;
+    color: #c3c3c3;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.toggle [type="checkbox"]:checked+.toggle-label .toggle-inner::before {
+    position: absolute;
+    left: 13px;
+    bottom: 5.5px;
+    z-index: 1;
+    content: "Yes";
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
